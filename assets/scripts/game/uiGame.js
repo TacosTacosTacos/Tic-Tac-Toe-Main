@@ -12,7 +12,7 @@ const viewStatsSuccess = function (data) {
   if (data.games.length === 0) {
     $('#messageStats').text('There are no results to display')
   } else {
-    $('#messageStats').text(data.games)
+    $('#messageStats').text(JSON.stringify(data.games))
   }
 }
 const viewStatsFailure = function (error) {
