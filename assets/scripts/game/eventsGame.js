@@ -20,23 +20,66 @@ const onUpdateGameState = function (index, value, over) {
     .catch(uiGame.updateGameState)
 }
 
+const determineGameWinner = () => {
+  console.log('Determining Game Winner')
+  const winConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ]
+  const userMovesCompleted = store.game.cells.filter((cell) => { return cell === store.currentPiece }).length
+
+  if (userMovesCompleted > 2) {
+    return winConditions.some((condition) => {
+      return condition.every((position) => {
+        return store.game.cells[position] === store.currentPiece
+      })
+    })
+  } else {
+    return false
+  }
+}
+
 const cellClickEvent = (i) => {
   // console.log('before', store.game.cells)
   store.game.cells[i] = store.currentPiece
+
+  const totalMovesCompleted = store.game.cells.filter((cell) => { return cell.length === 1 }).length
+  console.log('TotalMovesCompleted', totalMovesCompleted)
+
   // console.log('after', store.game.cells)
-
-  const over = false // Remove This AFTER SETTING OVER VALUE
-
-  onUpdateGameState(i, store.currentPiece, over)
+  store.over = determineGameWinner()
   uiGame.gameCellClick(i)
+  onUpdateGameState(i, store.currentPiece, store.over)
+
+  if (store.over === true) {
+    $('#messageGame').text('Piece ' + store.currentPiece + ' is the winner!!!')
+    removeGameClickHandlers()
+  } else if (store.over === false && totalMovesCompleted === 9) {
+    $('#messageGame').text('Failure is simply the opportunity to begin again, this time more intelligently.')
+    removeGameClickHandlers()
+  } else {
+    changePiece(store.currentPiece)
+  }
+
   $('#' + i).off('click')
-  changePiece(store.currentPiece)
 }
 
 const addGameClickHandlers = function () {
   console.log('EnteredClickHandler')
   for (let i = 0; i < 9; i++) {
     $('#' + i).on('click', () => { cellClickEvent(i) })
+  }
+}
+
+const removeGameClickHandlers = function () {
+  for (let i = 0; i < 9; i++) {
+    $('#' + i).off('click')
   }
 }
 
@@ -55,38 +98,11 @@ const onNewGame = (event) => {
   addGameClickHandlers()
   uiGame.clearGameBoard()
   store.currentPiece = 'X'
-  console.log('event', event.id)
+  $('#messageGame').text('Turn: ' + store.currentPiece)
 }
-
-// $(() => {
-//   setAPIOrigin(location, config)
-//   let currentPiece = 'X'
-// $('#game-cell-0').on('click', () => {
-//   $('#game-cell-0').text(currentPiece)
-//
-//   currentPiece = changePiece(currentPiece)
-//   $('#game-cell-0').off('click')
-//   $('#game-cell-0').css('cursor', 'not-allowed')
-//   $('#game-cell-0').hover(function () {
-//     $(this).css('background-color', '#4e4e4e')
-//   }, function () {
-//     $(this).css('background-color', '#4e4e4e')
-//   })
-// })
-//   $('#game-cell-1').on('click', () => {
-//     $('#game-cell-1').text(currentPiece)
-//
-//     currentPiece = changePiece(currentPiece)
-//     $('#game-cell-1').off('click')
-//     $('#game-cell-1').css('cursor', 'not-allowed')
-//     $('#game-cell-1').hover(function () {
-//       $(this).css('background-color', '#4e4e4e')
-//     }, function () {
-//       $(this).css('background-color', '#4e4e4e')
-//     })
-//   })
 
 module.exports = {
   onViewStats,
-  onNewGame
+  onNewGame,
+  determineGameWinner
 }
