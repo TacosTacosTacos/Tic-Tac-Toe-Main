@@ -35,7 +35,7 @@ const navStats = () => {
   $('#secHomeLoggedIn').hide()
   $('#secStats').show()
   $('#secGame').hide()
-
+  $('#messageStats').text('')
   $('.stats').addClass('active')
   $('.home').removeClass('active')
   $('.game').removeClass('active')
@@ -45,7 +45,6 @@ const navSignOut = () => {
   $('#messageNew').text('')
   $('#messageExisting').text('')
   $('#messageChangePassword').text('')
-  $('#messageStats').text('')
   $('#messageGame').text('Turn: X')
   $('.chgpass').val('')
   $('#secHomeLoggedOut').show()

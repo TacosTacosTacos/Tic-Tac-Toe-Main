@@ -55,15 +55,19 @@ const cellClickEvent = (i) => {
   // console.log('after', store.game.cells)
   store.over = determineGameWinner()
   uiGame.gameCellClick(i)
-  onUpdateGameState(i, store.currentPiece, store.over)
+  console.log('CurrentGameStore', store.game)
 
   if (store.over === true) {
+    onUpdateGameState(i, store.currentPiece, store.over)
     $('#messageGame').text('Piece ' + store.currentPiece + ' is the winner!!!')
     removeGameClickHandlers()
   } else if (store.over === false && totalMovesCompleted === 9) {
+    store.over = true
+    onUpdateGameState(i, store.currentPiece, store.over)
     $('#messageGame').text('Failure is simply the opportunity to begin again, this time more intelligently.')
     removeGameClickHandlers()
   } else {
+    onUpdateGameState(i, store.currentPiece, store.over)
     changePiece(store.currentPiece)
   }
 

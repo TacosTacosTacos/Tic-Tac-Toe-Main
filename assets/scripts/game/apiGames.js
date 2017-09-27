@@ -4,7 +4,7 @@ const store = require('../store.js')
 
 const viewStats = () => {
   return $.ajax({
-    url: config.apiOrigin + '/games',
+    url: config.apiOrigin + '/games/?over=true',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.player_x.token
@@ -33,6 +33,7 @@ const updateGameState = (index, value, over) => {
       'over': over
     }
   }
+  console.log('StartingGameStateUpdate')
   console.log('Data to change', data)
 
   return $.ajax({
