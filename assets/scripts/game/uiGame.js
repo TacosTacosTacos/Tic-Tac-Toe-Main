@@ -2,9 +2,26 @@
 const store = require('../store.js')
 
 const clearGameBoard = () => {
-  for (let i = 0; i < 9; i++) {
-    $('#' + i).text('')
+  for (let id = 0; id < 9; id++) {
+    $('#' + id).text('')
+    $('#' + id).css('cursor', 'default')
+    $('#' + id).css('background-color', '#fff')
+    $('#' + id).hover(function () {
+      $(this).css('background-color', '#ffa500')
+    }, function () {
+      $(this).css('background-color', '#fff')
+    })
   }
+}
+
+const gameCellClick = (id) => {
+  $('#' + id).text(store.currentPiece)
+  $('#' + id).css('cursor', 'not-allowed')
+  $('#' + id).hover(function () {
+    $(this).css('background-color', '#4e4e4e')
+  }, function () {
+    $(this).css('background-color', '#4e4e4e')
+  })
 }
 
 const viewStatsSuccess = function (data) {
@@ -37,5 +54,6 @@ module.exports = {
   viewStatsFailure,
   clearGameBoard,
   newGameSuccess,
-  newGameFailure
+  newGameFailure,
+  gameCellClick
 }

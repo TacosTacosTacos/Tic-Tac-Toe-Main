@@ -3,7 +3,6 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const viewStats = () => {
-  console.log('got to apiGames')
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'GET',
@@ -24,7 +23,30 @@ const newGame = () => {
   })
 }
 
+const updateGameState = (index, value, over) => {
+  const data = {
+    'game': {
+      'cell': {
+        'index': index,
+        'value': value
+      },
+      'over': over
+    }
+  }
+  console.log('Data to change', data)
+
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.player_x.token
+    },
+    data
+  })
+}
+
 module.exports = {
   viewStats,
-  newGame
+  newGame,
+  updateGameState
 }

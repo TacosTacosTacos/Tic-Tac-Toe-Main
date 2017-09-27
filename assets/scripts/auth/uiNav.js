@@ -1,5 +1,6 @@
 'use strict'
 
+const store = require('../store.js')
 const navSigningIn = () => {
   $('#secHomeLoggedOut').hide()
   $('#secHomeLoggedIn').show()
@@ -60,6 +61,7 @@ const navSignOut = () => {
 
   $('.game').removeClass('active')
   $('.stats').removeClass('active')
+  store.store = null
 }
 
 module.exports = {
