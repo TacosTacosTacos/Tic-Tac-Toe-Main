@@ -1,2 +1,43 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$background-color: #4e4e4e;
+$font-color: #dfdfdf;
+$game-cell-border-color: #000;
+$game-row-border-color: #ff0;
+$game-cell-hover-color: #ffa500;
+
+// body {
+//   background-color: $background-color;
+//   color: $font-color;
+// }
+
+.game-board {
+  margin: auto;
+}
+
+.game-cell {
+  border: 1px solid $game-cell-border-color;
+  font-size: 8em;
+  height: 2em;
+  line-height: 2em;
+  text-align: center;
+  vertical-align: middle;
+
+  &:hover {
+    background-color: $game-cell-hover-color;
+    cursor: pointer;
+  }
+}
+
+
+
+.game-row-0,
+.game-row-1 {
+  border-bottom-color: $game-row-border-color;
+}
+
+.game-col-0,
+.game-col-1 {
+  border-right-color: $game-row-border-color;
+}

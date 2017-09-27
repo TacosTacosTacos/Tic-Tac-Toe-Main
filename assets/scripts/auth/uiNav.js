@@ -44,10 +44,13 @@ const navSignOut = () => {
   $('#messageNew').text('')
   $('#messageExisting').text('')
   $('#messageChangePassword').text('')
+  $('#messageStats').text('')
+  $('#messageGame').text('Turn: X')
   $('.chgpass').val('')
   $('#secHomeLoggedOut').show()
   $('#secHomeLoggedIn').hide()
   $('#secGame').hide()
+  $('#secGameBoard').hide()
   $('#secStats').hide()
 
   $('.home').addClass('disabled')

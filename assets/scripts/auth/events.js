@@ -4,6 +4,8 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const api = require('./api')
 const ui = require('./ui')
+const eventsGame = require('../game/eventsGame.js')
+
 // const eventsNav = require('./eventsNav')
 
 const onSignIn = function (event) {
@@ -43,6 +45,8 @@ const addHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-up').on('submit', onSignUp)
   $('#change-password').on('submit', onChangePassword)
+  $('#game-new').on('click', eventsGame.onNewGame)
+  $('#view-stats').on('click', eventsGame.onViewStats)
 }
 
 module.exports = {

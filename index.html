@@ -69,7 +69,7 @@
   </section>
   <section id="secHomeLoggedIn" style="display:none">
     <p>User Logged In</p>
-<div id="messageChangePassword"></div>
+    <div id="messageChangePassword"></div>
     <form id="change-password">
       <fieldset>
         <legend>Change Your Password</legend>
@@ -81,29 +81,38 @@
 
   </section>
   <section id="secGame" style="display:none">
-    <p>Game</p>
-
-    <!-- <div class="container game-board">
-  <div class="row">
-    <div class="col-xs-4 box game-cell" id="0">X</div>
-    <div class="col-xs-4 box game-cell" id="1">X</div>
-    <div class="col-xs-4 box game-cell" id="2">X</div>
-  </div>
-  <div class="row">
-    <div class="col-xs-4 box game-cell" id="3">X</div>
-    <div class="col-xs-4 box game-cell" id="4">X</div>
-    <div class="col-xs-4 box game-cell" id="5">X</div>
-  </div>
-  <div class="row">
-    <div class="col-xs-4 box game-cell" id="6">X</div>
-    <div class="col-xs-4 box game-cell" id="7">O</div>
-    <div class="col-xs-4 box game-cell" id="8">O</div>
-  </div>
-</div> -->
-
+    <h1>Play This Great Game</h1>
+    <button type="button" class="btn btn-primary" id="game-new">New Game</button>
+<section id="secGameBoard" style="display:none">
+    <div class="container game-board">
+        <div id="messageGame">Turn: X</div>
+      <div class="row">
+        <div class="col-xs-4 box game-cell" id="0">X</div>
+        <div class="col-xs-4 box game-cell" id="1">X</div>
+        <div class="col-xs-4 box game-cell" id="2">X</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 box game-cell" id="3">X</div>
+        <div class="col-xs-4 box game-cell" id="4">X</div>
+        <div class="col-xs-4 box game-cell" id="5">X</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 box game-cell" id="6">X</div>
+        <div class="col-xs-4 box game-cell" id="7">O</div>
+        <div class="col-xs-4 box game-cell" id="8">O</div>
+      </div>
+    </div>
+</section>
   </section>
   <section id="secStats" style="display:none">
-    <p>Stats</p>
+    <div class="container">
+      <h1>Stats</h1>
+      <button type="button" class="btn btn-primary" id="view-stats">View Stats</button>
+    </div>
+    <div class="container">
+      <br>
+      <div id="messageStats"></div>
+    </div>
   </section>
 
 
