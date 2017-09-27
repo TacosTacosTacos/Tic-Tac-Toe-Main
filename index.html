@@ -1,25 +1,112 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Tic-Tac-Toe - The Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
-    </body>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+
+<body class="container-fluid">
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Tic-Tac-Toe - The Game</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="disabled home" id="navHome"><a href="#">Home</a></li>
+          <li class="disabled game" id="navGame"><a href="#">Game</a></li>
+          <li class="disabled stats"><a href="#" id="navStats">Statistics</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="disabled signout" id="navSignOut"><a href="#">Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="secHomeLoggedOut">
+
+    <p>This is a game of limited skill</p>
+
+    <div id="messageExisting"></div>
+    <form id="sign-in">
+      <fieldset>
+        <legend>Existing User</legend>
+        <label for="">Email:</label><input type="email" name="credentials[email]" placeholder="Enter Email" required>
+        <label for="">Password:</label><input type="password" name="credentials[password]" placeholder="Enter Password" required>
+        <input type="submit" name="submit" value="Sign in!">
+      </fieldset>
+    </form>
+
+    <br/>
+
+    <div id="messageNew"></div>
+    <form id="sign-up">
+      <fieldset>
+        <legend>New User</legend>
+        <label for="">Email:</label><input type="email" name="credentials[email]" placeholder="Enter Email" required>
+        <label for="">Password:</label><input type="password" name="credentials[password]" placeholder="Enter Password" required>
+        <label for="">Confirm Password:</label><input type="password" name="credentials[password_confirmation]" placeholder="Enter Password Again" required>
+        <input type="submit" name="submit" value="Sign up!">
+      </fieldset>
+    </form>
+
+  </section>
+  <section id="secHomeLoggedIn" style="display:none">
+    <p>User Logged In</p>
+<div id="messageChangePassword"></div>
+    <form id="change-password">
+      <fieldset>
+        <legend>Change Your Password</legend>
+        <label for="">Old Password:</label><input type="password" name="passwords[old]" class="chgpass" placeholder="Enter Your Old Password" required>
+        <label for="">New Password:</label><input type="password" name="passwords[new]" class="chgpass" placeholder="Enter Your New Password" required>
+        <input type="submit" name="submit" value="Change Password">
+      </fieldset>
+    </form>
+
+  </section>
+  <section id="secGame" style="display:none">
+    <p>Game</p>
+
+    <!-- <div class="container game-board">
+  <div class="row">
+    <div class="col-xs-4 box game-cell" id="0">X</div>
+    <div class="col-xs-4 box game-cell" id="1">X</div>
+    <div class="col-xs-4 box game-cell" id="2">X</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 box game-cell" id="3">X</div>
+    <div class="col-xs-4 box game-cell" id="4">X</div>
+    <div class="col-xs-4 box game-cell" id="5">X</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 box game-cell" id="6">X</div>
+    <div class="col-xs-4 box game-cell" id="7">O</div>
+    <div class="col-xs-4 box game-cell" id="8">O</div>
+  </div>
+</div> -->
+
+  </section>
+  <section id="secStats" style="display:none">
+    <p>Stats</p>
+  </section>
+
+
+</body>
+
 </html>
