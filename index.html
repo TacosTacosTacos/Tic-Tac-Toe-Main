@@ -28,11 +28,12 @@ Original Version 1 Completion Date: 09/28/2017-->
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="disabled home" id="navHome"><a href="#">Home</a></li>
           <li class="disabled game" id="navGame"><a href="#">Game</a></li>
           <li class="disabled stats"><a href="#" id="navStats">Statistics</a></li>
+          <hr />
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <li class="disabled changePassword" id="navChangePassword"><a href="#">Change Password</a></li>
           <li class="disabled signout" id="navSignOut"><a href="#">Sign Out</a></li>
         </ul>
       </div>
@@ -91,12 +92,7 @@ It is used for login and signup -->
 
 <!-- This page is displayed when the user logs in.
 It is mainly used for changing passwords. -->
-  <section id="secHomeLoggedIn" style="display:none">
-    <section class="col-xs-12">
-      <p>It looks like you decided you wanted to play. I guess I can't stop you. Use the form below if you want to change your password. I was too tired to create a separate page for it.
-      </p>
-    </section>
-
+  <section id="secChangePassword" style="display:none">
     <form id="change-password" class="col-xs-12">
       <fieldset>
         <legend>Change Your Password</legend>

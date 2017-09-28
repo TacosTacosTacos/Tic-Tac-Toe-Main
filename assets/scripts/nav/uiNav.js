@@ -5,30 +5,30 @@ const reuse = require('../reuse/reuse.js')
 
 const navSigningIn = () => {
   $('#secHomeLoggedOut').hide()
-  $('#secHomeLoggedIn').show()
-  $('.home').addClass('active')
-  reuse.removeDisabledClassesNavArray(['.home', '.game', '.stats', '.signout'])
+  $('#secGame').show()
+  $('.game').addClass('active')
+  reuse.removeDisabledClassesNavArray(['.changePassword', '.game', '.stats', '.signout'])
 }
 
 const navSignedIn = () => {
-  $('#secHomeLoggedIn').show()
+  $('#secChangePassword').show()
   reuse.hideMultipleFields(['#secStats', '#secGame'])
 
-  $('.home').addClass('active')
+  $('.changePassword').addClass('active')
   reuse.removeActiveClassesNavArray(['.stats', '.game'])
 }
 
 const navGame = () => {
-  $('#secHomeLoggedIn').hide()
+  $('#secChangePassword').hide()
   $('#secStats').hide()
   $('#secGame').show()
 
   $('.game').addClass('active')
-  reuse.removeActiveClassesNavArray(['.home', '.stats'])
+  reuse.removeActiveClassesNavArray(['.changePassword', '.stats'])
 }
 
 const navStats = () => {
-  reuse.hideMultipleFields(['#secHomeLoggedIn', '#secGame'])
+  reuse.hideMultipleFields(['#secChangePassword', '#secGame'])
   $('#secStats').show()
   reuse.emptyMultipleTextFields(['#messageStats', '#completed', '#wins', '#losses'])
   // $('#messageStats').text('')
@@ -36,7 +36,7 @@ const navStats = () => {
   // $('#wins').text('')
   // $('#losses').text('')
   $('.stats').addClass('active')
-  reuse.removeActiveClassesNavArray(['.home', '.game'])
+  reuse.removeActiveClassesNavArray(['.changePassword', '.game'])
 }
 
 const navSignOut = () => {
@@ -46,8 +46,8 @@ const navSignOut = () => {
   $('.chgpass').val('')
   $('#secHomeLoggedOut').show()
 
-  reuse.hideMultipleFields(['#secHomeLoggedIn', '#secGame', '#secGameBoard', '#secStats', '#messageExisting', '#messageNew', '#messageChangePassword'])
-  reuse.addDisableClassNavArray(['.home', '.game', '.stats', '.signout'])
+  reuse.hideMultipleFields(['#secChangePassword', '#secGame', '#secGameBoard', '#secStats', '#messageExisting', '#messageNew', '#messageChangePassword'])
+  reuse.addDisableClassNavArray(['.changePassword', '.game', '.stats', '.signout'])
 
   reuse.removeActiveClassesNavArray(['.game', '.stats'])
   $('#messageNew').removeClass('alert-danger')

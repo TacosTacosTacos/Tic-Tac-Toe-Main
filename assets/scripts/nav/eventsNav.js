@@ -3,7 +3,7 @@ const uiNav = require('./uiNav.js')
 const api = require('../auth/api.js')
 const ui = require('../auth/ui.js')
 
-const home = (event) => {
+const changePassword = (event) => {
   uiNav.navSignedIn()
   addNavHandlers()
 }
@@ -30,21 +30,21 @@ const signOut = (event) => {
 }
 
 const addNavHandlers = function () {
-  $('#navHome').on('click', home)
+  $('#navChangePassword').on('click', changePassword)
   $('#navGame').on('click', game)
   $('#navStats').on('click', stats)
   $('#navSignOut').on('click', signOut)
 }
 
 const removeNavHandlers = function () {
-  $('#navHome').off('click', home)
+  $('#navChangePassword').off('click', changePassword)
   $('#navGame').off('click', game)
   $('#navStats').off('click', stats)
   $('#navSignOut').off('click', signOut)
 }
 
 module.exports = {
-  home,
+  changePassword,
   game,
   stats,
   signOut,
