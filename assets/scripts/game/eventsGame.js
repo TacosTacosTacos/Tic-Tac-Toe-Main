@@ -3,6 +3,7 @@
 const apiGame = require('./apiGames.js')
 const uiGame = require('./uiGame.js')
 const store = require('../store.js')
+const constGames = require('./constGames')
 
 const changePiece = (currentPiece) => {
   if (currentPiece === 'X') {
@@ -21,20 +22,13 @@ const onUpdateGameState = function (index, value, over) {
 }
 
 const determineGameWinner = () => {
-  const winConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ]
   const userMovesCompleted = store.game.cells.filter((cell) => { return cell === store.currentPiece }).length
 
+  // If a specific user completes more than two turns, loop through each win condition.
+  // If every individual index of that win condition matches the array of user selections then return true
+  // Win conditions stored with the constants file
   if (userMovesCompleted > 2) {
-    return winConditions.some((condition) => {
+    return constGames.winConditions.some((condition) => {
       return condition.every((position) => {
         return store.game.cells[position] === store.currentPiece
       })
@@ -52,7 +46,7 @@ const cellClickEvent = (i) => {
   store.over = determineGameWinner()
   uiGame.gameCellClick(i)
 
-// Determine what to do if Win, Lose, Tie, or Continue
+  // Determine what to do if Win, Lose, Tie, or Continue
   if (store.over === true) {
     onUpdateGameState(i, store.currentPiece, store.over)
     $('#messageGame').text('Piece ' + store.currentPiece + ' is the winner!!!')

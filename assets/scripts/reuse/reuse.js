@@ -17,6 +17,10 @@ const hideMultipleFields = (stringArray) => {
   stringArray.forEach((id) => { $(id).hide() })
 }
 
+const showMultipleFields = (stringArray) => {
+  stringArray.forEach((id) => { $(id).show() })
+}
+
 const emptyMultipleTextFields = (stringArray) => {
   stringArray.forEach((id) => { $(id).text('') })
 }
@@ -35,5 +39,6 @@ module.exports = {
   removeActiveClassesNavArray,
   hideMultipleFields,
   emptyMultipleTextFields,
-  updateFieldAddRemoveClassMessage
+  updateFieldAddRemoveClassMessage,
+  showMultipleFields
 }

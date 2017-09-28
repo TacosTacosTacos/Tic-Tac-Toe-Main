@@ -1,5 +1,7 @@
 'use strict'
 const store = require('../store.js')
+const reuse = require('../reuse/reuse.js')
+const constGames = require('./constGames')
 
 const clearGameBoard = () => {
   for (let id = 0; id < 9; id++) {
@@ -30,18 +32,8 @@ const viewStatsSuccess = function (data) {
   } else {
     const gamesCompletedTotal = data.games.length
 
-    const winConditions = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
-    ]
     const gamesWonTotal = data.games.filter((game) => {
-      return winConditions.some((condition) => {
+      return constGames.winConditions.some((condition) => {
         return condition.every((position) => {
           return game.cells[position] === 'X'
         })
@@ -50,11 +42,15 @@ const viewStatsSuccess = function (data) {
 
     const gamesLostTotal = gamesCompletedTotal - gamesWonTotal
 
-    $('#messageStats').text('Total Completed Games:' + gamesCompletedTotal + '\nGames Won: ' + gamesWonTotal + '\nGames Lost: ' + gamesLostTotal)
+    $('#messageStats').text('')
+    $('#completed').text('Total Completed Games: ' + gamesCompletedTotal)
+    $('#wins').text('Games Won: ' + gamesWonTotal)
+    $('#losses').text('Games Lost: ' + gamesLostTotal)
   }
 }
 const viewStatsFailure = function (error) {
   console.error(error)
+  reuse.emptyMultipleTextFields(['#completed', '#wins', '#losses'])
   $('#messageStats').text('Unexpected error')
 }
 

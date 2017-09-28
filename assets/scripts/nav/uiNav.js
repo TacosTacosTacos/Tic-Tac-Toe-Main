@@ -30,7 +30,11 @@ const navGame = () => {
 const navStats = () => {
   reuse.hideMultipleFields(['#secHomeLoggedIn', '#secGame'])
   $('#secStats').show()
-  $('#messageStats').text('')
+  reuse.emptyMultipleTextFields(['#messageStats', '#completed', '#wins', '#losses'])
+  // $('#messageStats').text('')
+  // $('#completed').text('')
+  // $('#wins').text('')
+  // $('#losses').text('')
   $('.stats').addClass('active')
   reuse.removeActiveClassesNavArray(['.home', '.game'])
 }
