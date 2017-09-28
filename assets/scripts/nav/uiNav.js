@@ -52,6 +52,9 @@ const navSignOut = () => {
   $('#secGame').hide()
   $('#secGameBoard').hide()
   $('#secStats').hide()
+  $('#messageExisting').hide()
+  $('#messageNew').hide()
+  $('#messageChangePassword').hide()
 
   $('.home').addClass('disabled')
   $('.game').addClass('disabled')
@@ -60,6 +63,11 @@ const navSignOut = () => {
 
   $('.game').removeClass('active')
   $('.stats').removeClass('active')
+  $('#messageNew').removeClass('alert-danger')
+  $('#messageNew').removeClass('alert-success')
+  $('#messageChangePassword').removeClass('alert-danger')
+  $('#messageChangePassword').removeClass('alert-success')
+
   store.store = null
 }
 

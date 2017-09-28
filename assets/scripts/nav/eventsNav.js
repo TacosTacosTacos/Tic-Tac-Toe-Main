@@ -1,7 +1,7 @@
 'use strict'
 const uiNav = require('./uiNav.js')
-const api = require('./api')
-const ui = require('./ui')
+const api = require('../auth/api.js')
+const ui = require('../auth/ui.js')
 
 const home = (event) => {
   uiNav.navSignedIn()

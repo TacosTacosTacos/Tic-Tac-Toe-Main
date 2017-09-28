@@ -50,7 +50,9 @@
 
       <fieldset>
         <legend>Existing User</legend>
-        <div id="messageExisting" class="form-group"></div>
+        <div class="form-group">
+        <div id="messageExisting" style="display:none" class="form-group alert-danger"></div>
+      </div>
         <div class="form-group">
           <label for="email">Email: </label>
           <input type="email" name="credentials[email]" placeholder="Email" required>
@@ -90,14 +92,14 @@
   </section>
   <section id="secHomeLoggedIn" style="display:none">
     <section class="col-xs-12">
-      <p>It looks like you decided you wanted to play. I guess I can't stop you. Use the form below if you want to change your password. I was too tired to create a seperate page for it.
+      <p>It looks like you decided you wanted to play. I guess I can't stop you. Use the form below if you want to change your password. I was too tired to create a separate page for it.
       </p>
     </section>
     <form id="change-password" class="col-xs-12">
 
       <fieldset>
         <legend>Change Your Password</legend>
-        <div id="messageChangePassword" class="form-group"></div>
+        <div id="messageChangePassword" class="form-group" style="display:none"></div>
         <div class="form-group">
           <label for="">Old Password:</label>
           <input type="password" name="passwords[old]" class="chgpass" placeholder="Old Password" required>
