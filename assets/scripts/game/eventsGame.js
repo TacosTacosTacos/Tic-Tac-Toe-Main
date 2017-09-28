@@ -21,7 +21,6 @@ const onUpdateGameState = function (index, value, over) {
 }
 
 const determineGameWinner = () => {
-  console.log('Determining Game Winner')
   const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -46,16 +45,12 @@ const determineGameWinner = () => {
 }
 
 const cellClickEvent = (i) => {
-  // console.log('before', store.game.cells)
   store.game.cells[i] = store.currentPiece
 
   const totalMovesCompleted = store.game.cells.filter((cell) => { return cell.length === 1 }).length
-  console.log('TotalMovesCompleted', totalMovesCompleted)
 
-  // console.log('after', store.game.cells)
   store.over = determineGameWinner()
   uiGame.gameCellClick(i)
-  console.log('CurrentGameStore', store.game)
 
   if (store.over === true) {
     onUpdateGameState(i, store.currentPiece, store.over)
@@ -71,19 +66,18 @@ const cellClickEvent = (i) => {
     changePiece(store.currentPiece)
   }
 
-  $('#' + i).off('click')
+  $('#game-cell-' + i).off('click')
 }
 
 const addGameClickHandlers = function () {
-  console.log('EnteredClickHandler')
   for (let i = 0; i < 9; i++) {
-    $('#' + i).on('click', () => { cellClickEvent(i) })
+    $('#game-cell-' + i).on('click', () => { cellClickEvent(i) })
   }
 }
 
 const removeGameClickHandlers = function () {
   for (let i = 0; i < 9; i++) {
-    $('#' + i).off('click')
+    $('#game-cell-' + i).off('click')
   }
 }
 
@@ -91,7 +85,6 @@ const onViewStats = (event) => {
   apiGame.viewStats()
     .then(uiGame.viewStatsSuccess)
     .catch(uiGame.viewStatsFailure)
-  console.log('Stat Retrieval Completed')
 }
 
 const onNewGame = (event) => {

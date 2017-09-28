@@ -1,16 +1,13 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-$background-color: #4e4e4e;
-$font-color: #dfdfdf;
 $game-cell-border-color: #000;
 $game-row-border-color: #ff0;
 $game-cell-hover-color: #ffa500;
 
-// body {
-//   background-color: $background-color;
-//   color: $font-color;
-// }
+.sign-in {
+  padding-bottom: 1em;
+}
 
 .game-board {
   margin: auto;
@@ -29,8 +26,6 @@ $game-cell-hover-color: #ffa500;
     cursor: pointer;
   }
 }
-
-
 
 .game-row-0,
 .game-row-1 {

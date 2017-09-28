@@ -13,7 +13,6 @@ const viewStats = () => {
 }
 
 const newGame = () => {
-  console.log(store)
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
@@ -33,8 +32,6 @@ const updateGameState = (index, value, over) => {
       'over': over
     }
   }
-  console.log('StartingGameStateUpdate')
-  console.log('Data to change', data)
 
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,

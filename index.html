@@ -41,70 +41,101 @@
 
   <section id="secHomeLoggedOut">
 
-    <p>This is a game of limited skill</p>
+    <section class="container col-xs-12">
+      <p>This is a game of limited skill. Play the game that billions have coded</p>
+    </section>
 
-    <div id="messageExisting"></div>
-    <form id="sign-in">
+
+    <form id="sign-in" class="sign-in container col-xs-12">
+
       <fieldset>
         <legend>Existing User</legend>
-        <label for="">Email:</label><input type="email" name="credentials[email]" placeholder="Enter Email" required>
-        <label for="">Password:</label><input type="password" name="credentials[password]" placeholder="Enter Password" required>
-        <input type="submit" name="submit" value="Sign in!">
+        <div id="messageExisting" class="form-group"></div>
+        <div class="form-group">
+          <label for="email">Email: </label>
+          <input type="email" name="credentials[email]" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password: </label>
+          <input type="password" name="credentials[password]" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <input type="submit" name="submit" class="btn btn-primary" value="Sign in!">
+        </div>
       </fieldset>
     </form>
 
-    <br/>
-
-    <div id="messageNew"></div>
-    <form id="sign-up">
+    <form id="sign-up" class="col-xs-12">
       <fieldset>
         <legend>New User</legend>
-        <label for="">Email:</label><input type="email" name="credentials[email]" placeholder="Enter Email" required>
-        <label for="">Password:</label><input type="password" name="credentials[password]" placeholder="Enter Password" required>
-        <label for="">Confirm Password:</label><input type="password" name="credentials[password_confirmation]" placeholder="Enter Password Again" required>
-        <input type="submit" name="submit" value="Sign up!">
+        <div id="messageNew" class="form-group"></div>
+        <div class="form-group">
+          <label for="">Email: </label>
+          <input type="email" name="credentials[email]" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="">Password: </label>
+          <input type="password" name="credentials[password]" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <label for="">Confirm Password: </label>
+          <input type="password" name="credentials[password_confirmation]" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <input type="submit" name="submit" class="btn btn-primary" value="Sign up!">
+        </div>
       </fieldset>
     </form>
 
   </section>
   <section id="secHomeLoggedIn" style="display:none">
-    <p>User Logged In</p>
-    <div id="messageChangePassword"></div>
-    <form id="change-password">
+    <section class="col-xs-12">
+      <p>It looks like you decided you wanted to play. I guess I can't stop you. Use the form below if you want to change your password. I was too tired to create a seperate page for it.
+      </p>
+    </section>
+    <form id="change-password" class="col-xs-12">
+
       <fieldset>
         <legend>Change Your Password</legend>
-        <label for="">Old Password:</label><input type="password" name="passwords[old]" class="chgpass" placeholder="Enter Your Old Password" required>
-        <label for="">New Password:</label><input type="password" name="passwords[new]" class="chgpass" placeholder="Enter Your New Password" required>
-        <input type="submit" name="submit" value="Change Password">
+        <div id="messageChangePassword" class="form-group"></div>
+        <div class="form-group">
+          <label for="">Old Password:</label>
+          <input type="password" name="passwords[old]" class="chgpass" placeholder="Old Password" required>
+        </div>
+        <div class="form-group">
+          <label for="">New Password:</label>
+          <input type="password" name="passwords[new]" class="chgpass" placeholder="New Password" required>
+        </div>
+        <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
       </fieldset>
     </form>
 
   </section>
-  <section id="secGame" style="display:none">
-    <h1>Play This Great Game</h1>
+  <section id="secGame" class="col-xs-12" style="display:none">
+    <h3>I guess that you can use the button below to play a game</h3>
     <button type="button" class="btn btn-primary" id="game-new">New Game</button>
-<section id="secGameBoard" style="display:none">
-    <div class="container game-board">
-        <div id="messageGame">Turn: X</div>
-      <div class="row">
-        <div class="col-xs-4 box game-cell" id="0">X</div>
-        <div class="col-xs-4 box game-cell" id="1">X</div>
-        <div class="col-xs-4 box game-cell" id="2">X</div>
+    <section id="secGameBoard" style="display:none">
+      <div class="container game-board">
+        <div id="messageGame" class="well well-sm">Turn: X</div>
+        <div class="row">
+          <div class="col-xs-4 box game-cell" id="game-cell-0">X</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-1">X</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-2">X</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 box game-cell" id="game-cell-3">X</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-4">X</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-5">X</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 box game-cell" id="game-cell-6">X</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-7">O</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-8">O</div>
+        </div>
       </div>
-      <div class="row">
-        <div class="col-xs-4 box game-cell" id="3">X</div>
-        <div class="col-xs-4 box game-cell" id="4">X</div>
-        <div class="col-xs-4 box game-cell" id="5">X</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-4 box game-cell" id="6">X</div>
-        <div class="col-xs-4 box game-cell" id="7">O</div>
-        <div class="col-xs-4 box game-cell" id="8">O</div>
-      </div>
-    </div>
-</section>
+    </section>
   </section>
-  <section id="secStats" style="display:none">
+  <section id="secStats" class="col-xs-12" style="display:none">
     <div class="container">
       <h1>Stats</h1>
       <button type="button" class="btn btn-primary" id="view-stats">View Stats</button>
