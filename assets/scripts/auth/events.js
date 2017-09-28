@@ -8,6 +8,7 @@ const eventsGame = require('../game/eventsGame.js')
 
 // const eventsNav = require('./eventsNav')
 
+// The signout event is stored within the nav due to it's complexity
 const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -36,6 +37,7 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+// Creates most of the game events.  Some area set based on the nav or when creating a new game
 const addHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-up').on('submit', onSignUp)

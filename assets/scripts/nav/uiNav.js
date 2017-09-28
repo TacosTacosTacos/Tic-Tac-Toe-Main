@@ -1,24 +1,21 @@
 'use strict'
 
 const store = require('../store.js')
+const reuse = require('../reuse/reuse.js')
+
 const navSigningIn = () => {
   $('#secHomeLoggedOut').hide()
   $('#secHomeLoggedIn').show()
   $('.home').addClass('active')
-  $('.home').removeClass('disabled')
-  $('.game').removeClass('disabled')
-  $('.stats').removeClass('disabled')
-  $('.signout').removeClass('disabled')
+  reuse.removeDisabledClassesNavArray(['.home', '.game', '.stats', '.signout'])
 }
 
 const navSignedIn = () => {
   $('#secHomeLoggedIn').show()
-  $('#secStats').hide()
-  $('#secGame').hide()
+  reuse.hideMultipleFields(['#secStats', '#secGame'])
 
   $('.home').addClass('active')
-  $('.stats').removeClass('active')
-  $('.game').removeClass('active')
+  reuse.removeActiveClassesNavArray(['.stats', '.game'])
 }
 
 const navGame = () => {
@@ -27,42 +24,28 @@ const navGame = () => {
   $('#secGame').show()
 
   $('.game').addClass('active')
-  $('.home').removeClass('active')
-  $('.stats').removeClass('active')
+  reuse.removeActiveClassesNavArray(['.home', '.stats'])
 }
 
 const navStats = () => {
-  $('#secHomeLoggedIn').hide()
+  reuse.hideMultipleFields(['#secHomeLoggedIn', '#secGame'])
   $('#secStats').show()
-  $('#secGame').hide()
   $('#messageStats').text('')
   $('.stats').addClass('active')
-  $('.home').removeClass('active')
-  $('.game').removeClass('active')
+  reuse.removeActiveClassesNavArray(['.home', '.game'])
 }
 
 const navSignOut = () => {
-  $('#messageNew').text('')
-  $('#messageExisting').text('')
-  $('#messageChangePassword').text('')
+  reuse.emptyMultipleTextFields(['#messageNew', '#messageExisting', '#messageChangePassword'])
+
   $('#messageGame').text('Turn: X')
   $('.chgpass').val('')
   $('#secHomeLoggedOut').show()
-  $('#secHomeLoggedIn').hide()
-  $('#secGame').hide()
-  $('#secGameBoard').hide()
-  $('#secStats').hide()
-  $('#messageExisting').hide()
-  $('#messageNew').hide()
-  $('#messageChangePassword').hide()
 
-  $('.home').addClass('disabled')
-  $('.game').addClass('disabled')
-  $('.stats').addClass('disabled')
-  $('.signout').addClass('disabled')
+  reuse.hideMultipleFields(['#secHomeLoggedIn', '#secGame', '#secGameBoard', '#secStats', '#messageExisting', '#messageNew', '#messageChangePassword'])
+  reuse.addDisableClassNavArray(['.home', '.game', '.stats', '.signout'])
 
-  $('.game').removeClass('active')
-  $('.stats').removeClass('active')
+  reuse.removeActiveClassesNavArray(['.game', '.stats'])
   $('#messageNew').removeClass('alert-danger')
   $('#messageNew').removeClass('alert-success')
   $('#messageChangePassword').removeClass('alert-danger')

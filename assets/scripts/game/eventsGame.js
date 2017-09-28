@@ -52,6 +52,7 @@ const cellClickEvent = (i) => {
   store.over = determineGameWinner()
   uiGame.gameCellClick(i)
 
+// Determine what to do if Win, Lose, Tie, or Continue
   if (store.over === true) {
     onUpdateGameState(i, store.currentPiece, store.over)
     $('#messageGame').text('Piece ' + store.currentPiece + ' is the winner!!!')

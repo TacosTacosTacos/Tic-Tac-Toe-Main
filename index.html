@@ -1,13 +1,13 @@
 <!DOCTYPE html>
+<!-- Tic-Tac-Toe - The Game
+Created by: Tacos-Tacos-Tacos
+Original Version 1 Completion Date: 09/28/2017-->
 <html>
-
 <head>
   <title>Tic-Tac-Toe - The Game</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -15,7 +15,7 @@
 
 
 <body class="container-fluid">
-
+<!-- The navbar for the website.  Starts in a fully disabled state, but changes after login -->
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -39,15 +39,14 @@
     </div>
   </nav>
 
+<!-- This is the initial page displayed to the user when they load the website.
+It is used for login and signup -->
   <section id="secHomeLoggedOut">
-
     <section class="container col-xs-12">
       <p>This is a game of limited skill. Play the game that billions have coded</p>
     </section>
 
-
     <form id="sign-in" class="sign-in container col-xs-12">
-
       <fieldset>
         <legend>Existing User</legend>
         <div class="form-group">
@@ -88,15 +87,17 @@
         </div>
       </fieldset>
     </form>
-
   </section>
+
+<!-- This page is displayed when the user logs in.
+It is mainly used for changing passwords. -->
   <section id="secHomeLoggedIn" style="display:none">
     <section class="col-xs-12">
       <p>It looks like you decided you wanted to play. I guess I can't stop you. Use the form below if you want to change your password. I was too tired to create a separate page for it.
       </p>
     </section>
-    <form id="change-password" class="col-xs-12">
 
+    <form id="change-password" class="col-xs-12">
       <fieldset>
         <legend>Change Your Password</legend>
         <div id="messageChangePassword" class="form-group" style="display:none"></div>
@@ -111,8 +112,9 @@
         <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
       </fieldset>
     </form>
-
   </section>
+
+<!-- This section is for the actual game itself -->
   <section id="secGame" class="col-xs-12" style="display:none">
     <h3>I guess that you can use the button below to play a game</h3>
     <button type="button" class="btn btn-primary" id="game-new">New Game</button>
@@ -136,6 +138,8 @@
         </div>
       </div>
     </section>
+
+<!-- This section is for displaying the logged in user's stats -->
   </section>
   <section id="secStats" class="col-xs-12" style="display:none">
     <div class="container">
@@ -148,7 +152,5 @@
     </div>
   </section>
 
-
 </body>
-
 </html>
