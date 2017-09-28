@@ -22,7 +22,14 @@ const onSignUp = function (event) {
   event.preventDefault()
   if (data.credentials.password === data.credentials.password_confirmation) {
     api.signUp(data)
-      .then(ui.signUpSuccess)
+      // .then(ui.signUpSuccess)
+      .then(() => {
+        setTimeout(() => {
+          api.signIn(data)
+            .then(ui.signInSuccess)
+            .catch(ui.signUpFailure)
+        }, 200)
+      })
       .catch(ui.signUpFailure)
   } else {
     ui.signUpPasswordFailure()
