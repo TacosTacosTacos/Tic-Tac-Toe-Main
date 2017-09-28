@@ -28,12 +28,11 @@ Original Version 1 Completion Date: 09/28/2017-->
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
+          <li class="disabled home" id="navHome"><a href="#">Home</a></li>
           <li class="disabled game" id="navGame"><a href="#">Game</a></li>
           <li class="disabled stats"><a href="#" id="navStats">Statistics</a></li>
-          <hr />
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="disabled changePassword" id="navChangePassword"><a href="#">Change Password</a></li>
           <li class="disabled signout" id="navSignOut"><a href="#">Sign Out</a></li>
         </ul>
       </div>
@@ -90,8 +89,14 @@ It is used for login and signup -->
     </form>
   </section>
 
-<!-- This page is mainly used for changing passwords. -->
-  <section id="secChangePassword" style="display:none">
+<!-- This page is displayed when the user logs in.
+It is mainly used for changing passwords. -->
+  <section id="secHomeLoggedIn" style="display:none">
+    <section class="col-xs-12">
+      <p>It looks like you decided you wanted to play. I guess I can't stop you. Use the form below if you want to change your password. I was too tired to create a separate page for it.
+      </p>
+    </section>
+
     <form id="change-password" class="col-xs-12">
       <fieldset>
         <legend>Change Your Password</legend>
@@ -109,7 +114,7 @@ It is used for login and signup -->
     </form>
   </section>
 
-<!-- This section is for the actual game itself.  The user is directed to it when they login. -->
+<!-- This section is for the actual game itself -->
   <section id="secGame" class="col-xs-12" style="display:none">
     <h3>I guess that you can use the button below to play a game</h3>
     <button type="button" class="btn btn-primary" id="game-new">New Game</button>
@@ -117,19 +122,19 @@ It is used for login and signup -->
       <div class="container game-board">
         <div id="messageGame" class="well well-sm">Turn: X</div>
         <div class="row">
-          <div class="col-xs-4 box game-cell" id="game-cell-0"></div>
-          <div class="col-xs-4 box game-cell" id="game-cell-1"></div>
-          <div class="col-xs-4 box game-cell" id="game-cell-2"></div>
+          <div class="col-xs-4 box game-cell" id="game-cell-0">X</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-1">X</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-2">X</div>
         </div>
         <div class="row">
-          <div class="col-xs-4 box game-cell" id="game-cell-3"></div>
-          <div class="col-xs-4 box game-cell" id="game-cell-4"></div>
-          <div class="col-xs-4 box game-cell" id="game-cell-5"></div>
+          <div class="col-xs-4 box game-cell" id="game-cell-3">X</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-4">X</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-5">X</div>
         </div>
         <div class="row">
-          <div class="col-xs-4 box game-cell" id="game-cell-6"></div>
-          <div class="col-xs-4 box game-cell" id="game-cell-7"></div>
-          <div class="col-xs-4 box game-cell" id="game-cell-8"></div>
+          <div class="col-xs-4 box game-cell" id="game-cell-6">X</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-7">O</div>
+          <div class="col-xs-4 box game-cell" id="game-cell-8">O</div>
         </div>
       </div>
     </section>
