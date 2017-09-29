@@ -49,7 +49,7 @@ const navSignOut = () => {
   reuse.hideMultipleFields(['#secChangePassword', '#secGame', '#secGameBoard', '#secStats', '#messageExisting', '#messageNew', '#messageChangePassword'])
   reuse.addDisableClassNavArray(['.changePassword', '.game', '.stats', '.signout'])
 
-  reuse.removeActiveClassesNavArray(['.game', '.stats'])
+  reuse.removeActiveClassesNavArray(['.game', '.stats', '.changePassword'])
   $('#messageNew').removeClass('alert-danger')
   $('#messageNew').removeClass('alert-success')
   $('#messageChangePassword').removeClass('alert-danger')
